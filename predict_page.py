@@ -1,7 +1,7 @@
 import streamlit as st
 import pickle
 import numpy as np
-
+from explore_page import show_explore_page
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -102,4 +102,11 @@ def show_predict_page():
 
 # Run the app
 if __name__ == '__main__':
-    show_predict_page()
+
+    page = st.sidebar.selectbox("Navigation", ["Predict Salary", "Explore"])
+    
+    if page == "Predict Salary":
+        show_predict_page()
+    elif page == "Explore":
+        show_explore_page()
+  
